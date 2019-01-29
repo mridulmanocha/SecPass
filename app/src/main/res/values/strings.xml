@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">SecPass</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+    <string name="next">NEXT</string>
+    <string name="skip">SKIP</string>
+    <string name="start">GOT IT</string>
+    <string name="hinttext">The Hint can be used in case you forget your password!</string>
+
+    <string name="terms2">There is no way of retrieving the data back if lost in current version.  This application does not use cookies and does not share any information/data with anyone</string>
+    <string name="terms">Unless otherwise stated, SecPass and/or its licensors own the intellectual property rights for all material on None. All intellectual property rights are reserved. You may access this from SecPass for your own personal use subjected to restrictions set in these terms and conditions.</string>
+    <string name="terms3">We reserve the right to request that you remove all links or any particular link to our application. You approve to immediately remove all links to our application upon request. We also reserve the right to amen these terms and conditions and it’s linking policy at any time. By continuously linking to our application, you agree to be bound to and follow these linking terms and conditions.</string>
+
+
+
+</resources>
