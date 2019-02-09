@@ -15,11 +15,12 @@ import com.prateek.secpass.MainActivity;
 import com.prateek.secpass.R;
 import com.prateek.secpass.settingsattr.ChangeHintActivity;
 import com.prateek.secpass.settingsattr.ChangePassActivity;
+import com.prateek.secpass.splash_welcome.LogInActivity;
 
 public class SettingsActivity extends AppCompatActivity {
 
 
-    private Button pass, hint, suggestions;
+    private Button pass, hint, suggestions,logout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +28,7 @@ public class SettingsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_settings);
         pass = findViewById(R.id.changepassword);
         hint = findViewById(R.id.changehint);
+        logout = findViewById(R.id.logout);
         suggestions = findViewById(R.id.suggestions);
 
         pass.setOnClickListener(new View.OnClickListener() {
@@ -50,12 +52,22 @@ public class SettingsActivity extends AppCompatActivity {
                 Intent intent = new Intent(Intent.ACTION_SEND);
                 intent.setType("plain/text");
                 intent.putExtra(Intent.EXTRA_EMAIL, new String[]{"secpass.privacy@gmail.com"});
-                intent.putExtra(Intent.EXTRA_SUBJECT, "subject");
-                intent.putExtra(Intent.EXTRA_TEXT, "mail body");
+                intent.putExtra(Intent.EXTRA_SUBJECT, "");
+                intent.putExtra(Intent.EXTRA_TEXT, "");
                 startActivity(Intent.createChooser(intent, ""));
             }
         });
 
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent= new Intent(SettingsActivity.this, LogInActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+                finish();
+
+            }
+        });
     }
 
 }

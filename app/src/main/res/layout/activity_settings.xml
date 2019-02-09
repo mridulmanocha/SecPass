@@ -11,7 +11,7 @@
     <Button
         android:id="@+id/changepassword"
         android:layout_width="match_parent"
-        android:layout_height="70dp"
+        android:layout_height="60dp"
         android:background="?android:attr/selectableItemBackground"
         android:text="  Change Password"
         android:textAlignment="viewStart"
@@ -21,12 +21,12 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="0.5dp"
-        android:background="@color/colorAccent" />
+        android:background="@android:color/darker_gray" />
 
     <Button
         android:id="@+id/changehint"
         android:layout_width="match_parent"
-        android:layout_height="70dp"
+        android:layout_height="60dp"
         android:background="?android:attr/selectableItemBackground"
         android:text="  Change Hint"
         android:textAlignment="viewStart"
@@ -36,12 +36,12 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="0.5dp"
-        android:background="@color/colorAccent" />
+        android:background="@android:color/darker_gray" />
 
     <Button
         android:id="@+id/suggestions"
         android:layout_width="match_parent"
-        android:layout_height="70dp"
+        android:layout_height="60dp"
         android:background="?android:attr/selectableItemBackground"
         android:text="  Feedbacks "
         android:textAlignment="viewStart"
@@ -51,13 +51,30 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="0.5dp"
-        android:background="@color/colorAccent" />
+        android:background="@android:color/darker_gray" />
+
 
     <Button
         android:layout_width="match_parent"
-        android:layout_height="70dp"
+        android:layout_height="60dp"
         android:background="?android:attr/selectableItemBackground"
         android:text="  Version &#10;    1.0 "
+        android:textAlignment="viewStart"
+        android:textAllCaps="false"
+        android:textStyle="normal"
+        android:textSize="18dp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@android:color/darker_gray" />
+
+    <Button
+        android:id="@+id/logout"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="?android:attr/selectableItemBackground"
+        android:text="  Log Out "
         android:textAlignment="viewStart"
         android:textAllCaps="false"
         android:textSize="18dp" />
@@ -65,6 +82,6 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="0.5dp"
-        android:background="@color/colorAccent" />
+        android:background="@android:color/darker_gray" />
 
 </LinearLayout>

@@ -9,10 +9,12 @@
         android:roundIcon="@drawable/secpass_notitle_logo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".settingsattr.ChangeHintActivity"></activity>
+        <activity android:name=".EditNoteActivity"></activity>
+        <activity android:name=".settingsattr.ChangeHintActivity" />
         <activity android:name=".settingsattr.ChangePassActivity" />
-        <activity android:name=".drawerattr.SettingsActivity"
-            android:parentActivityName=".MainActivity"/>
+        <activity
+            android:name=".drawerattr.SettingsActivity"
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".drawerattr.TrashActivity"
             android:parentActivityName=".MainActivity" />

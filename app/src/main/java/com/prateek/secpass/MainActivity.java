@@ -8,6 +8,8 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AlertDialog;
+import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.SubMenu;
 import android.view.View;
@@ -27,16 +29,18 @@ import android.widget.Toast;
 import com.prateek.secpass.drawerattr.SettingsActivity;
 import com.prateek.secpass.drawerattr.TermsActivity;
 import com.prateek.secpass.drawerattr.TrashActivity;
+import com.prateek.secpass.splash_welcome.LogInActivity;
+
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-
     SubMenu subMenu = null;
+    private Timer timer;
+    RecyclerView recyclerView;
 
-    /*
-        TextView t1,t2;
-    */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,12 +48,14 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        recyclerView= findViewById(R.id.recyclerview);
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                /*Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();*/
+                startActivity(new Intent(MainActivity.this,EditNoteActivity.class));
             }
         });
 
@@ -121,6 +127,8 @@ public class MainActivity extends AppCompatActivity
                             String label = getsp.getString("cat", "");
                             subMenu = menu.addSubMenu(label);
                             subMenu.add(cat);
+
+
                             Toast.makeText(MainActivity.this, "Category Added Successfully", Toast.LENGTH_SHORT).show();
 
                         } else {
@@ -146,7 +154,7 @@ public class MainActivity extends AppCompatActivity
             startActivity(new Intent(MainActivity.this, TrashActivity.class));
 
 
-        }  else if (id == R.id.nav_settings) {
+        } else if (id == R.id.nav_settings) {
             startActivity(new Intent(MainActivity.this, SettingsActivity.class));
 
 
@@ -185,4 +193,37 @@ public class MainActivity extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
+    /*@Override
+    protected void onPause() {
+        super.onPause();
+
+        timer = new Timer();
+        Log.i("Main", "Invoking logout timer");
+        LogOutTimerTask logoutTimeTask = new LogOutTimerTask();
+        timer.schedule(logoutTimeTask, 60000); //auto logout in 5 minutes
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if (timer != null) {
+            timer.cancel();
+            Log.i("Main", "cancel timer");
+            timer = null;
+        }
+    }
+
+    private class LogOutTimerTask extends TimerTask {
+
+        @Override
+        public void run() {
+
+            //redirect user to login screen
+            Intent i = new Intent(MainActivity.this, LogInActivity.class);
+            i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            startActivity(i);
+            finish();
+        }
+    }*/
 }

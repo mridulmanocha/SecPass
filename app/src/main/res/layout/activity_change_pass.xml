@@ -7,48 +7,69 @@
     android:orientation="vertical"
     tools:context=".settingsattr.ChangePassActivity">
 
-    <EditText
-        android:id="@+id/old_pass_edit"
+    <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginRight="10dp"
-        android:hint="Old Password"
-        android:inputType="textPassword"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp">
 
-        android:maxLines="1" />
+        <EditText
+            android:id="@+id/old_pass_edit"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            android:hint="Old Password"
+            android:inputType="textPassword"
 
-    <requestFocus />
+            android:maxLines="1" />
 
+        <requestFocus />
+    </android.support.design.widget.TextInputLayout>
 
-    <EditText
-        android:id="@+id/new_pass_edit"
+    <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginRight="10dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp">
 
-        android:hint="New Password"
-        android:inputType="textPassword"
-        android:maxLines="1" />
+        <EditText
+            android:id="@+id/new_pass_edit"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
 
-    <requestFocus />
+            android:hint="New Password"
+            android:inputType="textPassword"
+            android:maxLines="1" />
+
+        <requestFocus />
+
+    </android.support.design.widget.TextInputLayout>
 
 
-    <EditText
-        android:id="@+id/confirm_new_pass_edit"
+    <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginRight="10dp"
-        android:hint="Confirm New Password"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp">
 
-        android:inputType="textPassword"
-        android:maxLines="1" />
 
-    <requestFocus />
+        <EditText
+            android:id="@+id/confirm_new_pass_edit"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            android:hint="Confirm New Password"
+
+            android:inputType="textPassword"
+            android:maxLines="1" />
+
+        <requestFocus />
+
+    </android.support.design.widget.TextInputLayout>
+
 
 </LinearLayout>

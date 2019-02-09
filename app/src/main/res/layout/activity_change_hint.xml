@@ -7,43 +7,59 @@
     android:orientation="vertical"
     tools:context=".settingsattr.ChangeHintActivity">
 
-
-    <EditText
-        android:id="@+id/old_pass_hint_edit"
+    <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginRight="10dp"
-        android:hint="Old Hint"
-         />
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp">
 
-    <requestFocus />
+        <EditText
+            android:id="@+id/old_pass_hint_edit"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            android:hint="Old Hint" />
 
+        <requestFocus />
 
-    <EditText
-        android:id="@+id/new_pass_hint_edit"
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginRight="10dp"
-        android:hint="New Hint"
- />
-
-    <requestFocus />
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp">
 
 
-    <EditText
-        android:id="@+id/confirm_new_pass_hint_edit"
+        <EditText
+            android:id="@+id/new_pass_hint_edit"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            android:hint="New Hint" />
+
+        <requestFocus />
+    </android.support.design.widget.TextInputLayout>
+
+
+    <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginRight="10dp"
-        android:hint="Confirm New Hint"
-         />
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp">
 
-    <requestFocus />
+        <EditText
+            android:id="@+id/confirm_new_pass_hint_edit"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            android:hint="Confirm New Hint" />
+
+        <requestFocus />
+    </android.support.design.widget.TextInputLayout>
+
 
 </LinearLayout>
