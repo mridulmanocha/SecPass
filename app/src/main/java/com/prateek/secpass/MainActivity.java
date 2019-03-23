@@ -4,10 +4,12 @@ import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AlertDialog;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -26,11 +28,15 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.prateek.secpass.adapter.NoteAdapter;
+import com.prateek.secpass.dao.Note;
+import com.prateek.secpass.database.DatabaseHelper;
 import com.prateek.secpass.drawerattr.SettingsActivity;
 import com.prateek.secpass.drawerattr.TermsActivity;
 import com.prateek.secpass.drawerattr.TrashActivity;
 import com.prateek.secpass.splash_welcome.LogInActivity;
 
+import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -40,6 +46,9 @@ public class MainActivity extends AppCompatActivity
     SubMenu subMenu = null;
     private Timer timer;
     RecyclerView recyclerView;
+    private ArrayList<Note> arrayList = new ArrayList<>();
+    private DatabaseHelper dbhelper;
+    private NoteAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,14 +57,17 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        recyclerView= findViewById(R.id.recyclerview);
+        recyclerView = findViewById(R.id.recyclerview);
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 /*Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();*/
-                startActivity(new Intent(MainActivity.this,EditNoteActivity.class));
+                Intent intent = new Intent(MainActivity.this, EditNoteActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+
+                startActivity(intent);
             }
         });
 
@@ -67,7 +79,52 @@ public class MainActivity extends AppCompatActivity
 
         final NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+        /*Intent intent= getIntent();
+        String title= getIntent().getExtras().getString("title");
+        String mailid= getIntent().getExtras().getString("mailid");*/
+        //getpasseddata();
+        initobj();
+
     }
+
+    private void initobj() {
+        adapter = new NoteAdapter(this, arrayList);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
+        recyclerView.setLayoutManager(layoutManager);
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setAdapter(adapter);
+        dbhelper = new DatabaseHelper(this);
+        getDatafromSqlite();
+    }
+
+    private void getDatafromSqlite() {
+
+        // AsyncTask is used that SQLite operation not blocks the UI Thread.
+        new AsyncTask<Void, Void, Void>() {
+            @Override
+            protected Void doInBackground(Void... params) {
+                arrayList.clear();
+                arrayList.addAll(dbhelper.getAllData());
+
+                return null;
+            }
+
+            @Override
+            protected void onPostExecute(Void aVoid) {
+                super.onPostExecute(aVoid);
+                adapter.notifyDataSetChanged();
+            }
+        }.execute();
+
+    }
+
+
+    /*public void getpasseddata(){
+        Intent intent= getIntent();
+        String title= getIntent().getExtras().getString("title");
+        String mailid= getIntent().getExtras().getString("mailid");
+    }*/
+
 
     @Override
     public void onBackPressed() {

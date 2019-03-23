@@ -10,6 +10,8 @@
     <string name="skip">SKIP</string>
     <string name="start">GOT IT</string>
     <string name="hinttext">The Hint can be used in case you forget your password!</string>
+    <string name="addcattext">The category will help to recognize the data!</string>
+    <string name="askpass">Enter your app password</string>
 
     <string name="terms2">There is no way of retrieving the data back if lost in current version.  This application does not use cookies and does not share any information/data with anyone</string>
     <string name="terms">Unless otherwise stated, SecPass and/or its licensors own the intellectual property rights for all material on None. All intellectual property rights are reserved. You may access this from SecPass for your own personal use subjected to restrictions set in these terms and conditions.</string>
